@@ -62,6 +62,7 @@
     border-radius: 2px;
     appearance: none;
     transition: $transition-duration;
+    z-index: 5;
 
     &:active {
       outline: 3px solid #C8D5FF;

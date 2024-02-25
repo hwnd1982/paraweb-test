@@ -36,7 +36,7 @@ export const Form = ({form}: {form: FieldProps[]}) => {
               />
             ))}
 
-            <label className={styles.checkbox}>
+            <span className={styles.checkbox}>
               <span className={styles.wrapp}>
                 <input className={styles.input} type="checkbox" name="personal-data" value="agree" />
                 <Check className={styles.check} />
@@ -44,7 +44,7 @@ export const Form = ({form}: {form: FieldProps[]}) => {
               <span className={styles.span}>
                 Я подтверждаю, что даю согласие на&nbsp;<a href="#" className={styles.link}>обработку персональных данных</a>
               </span>
-            </label>
+            </span>
 
             <button className={styles.button} type="submit">РЕГИСТРАЦИЯ</button>
           </fieldset>
