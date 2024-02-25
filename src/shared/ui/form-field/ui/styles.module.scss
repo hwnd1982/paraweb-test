@@ -1,0 +1,68 @@
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 26px;
+
+  .label {
+    font-size: 14px;
+    line-height: calc(20 / 14);
+    color: #8B8F98;
+    margin-bottom: 8px;
+  }
+
+  .input {
+    padding: 14px 12px;
+    border: 1px solid #C0C6D1;
+    border-radius: 5px;
+    outline: none;
+    caret-color: $primary-color;
+    
+    @include hover {
+      border-color: $primary-color;
+    }
+
+    &:focus {
+      border-color: $primary-color;
+    }
+
+    &:disabled {
+      background-color: $element-disabled-color;
+      color:$text-alt-color;
+      border-color: $text-blind-color;
+    }
+  } 
+  
+  .invalid {
+    border-color: $error-color;
+  } 
+
+  .valid {
+    border-color: $success-color;
+  }
+
+  .isValide {
+    position: absolute;
+    top: 42px;
+    right: 12px;
+  }
+
+  .message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 12px;
+    color: #E03A15;
+  }
+
+  .hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    appearance: none;
+    opacity: 0;
+    z-index: -99;
+  }
+} 

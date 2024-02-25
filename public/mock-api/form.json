@@ -1,0 +1,64 @@
+[
+  {
+    "type": "text",
+    "label": "Ваш ФИО",
+    "required": true,
+    "name": "name",
+    "min": 2
+  },
+  {
+    "type": "email",
+    "label": "Ваш e-mail",
+    "name": "email",
+    "required": true
+  },
+  {
+    "type": "tel",
+    "label": "Ваш телефон",
+    "name": "phone",
+    "mask": "{+7 }000 000 00 00",
+    "required": true
+  },
+  {
+    "type": "password",
+    "label": "Пароль",
+    "name": "password",
+    "min": 5,
+    "required": true
+  },
+  {
+    "type": "password",
+    "label": "Повторите пароль",
+    "name": "confirmPassword",
+    "required": true,
+    "confirm": "password"
+  },
+  {
+    "type": "select",
+    "label": "Выберете пункт из списка",
+    "name": "select",
+    "required": true,
+    "options": [
+      {
+        "text": "Выбор",
+        "value": ""
+      },
+      {
+        "text": "Выбор 1",
+        "value": "1"
+      },
+      {
+        "text": "Выбор 2",
+        "value": "2"
+      },
+      {
+        "text": "Выбор 3",
+        "value": "3"
+      },
+      {
+        "text": "Выбор 4",
+        "value": "4"
+      }
+    ]
+  }
+]

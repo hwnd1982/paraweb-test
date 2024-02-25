@@ -1,0 +1,171 @@
+.form {
+  width: 100%;
+  max-width: 340px;
+
+  .fieldset {
+
+    &>:not(:last-child) {
+      margin-bottom: 14px;
+    }
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: calc(18 / 14);
+    padding: 14px;
+    max-width: 170px;
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 10px;
+    background-color: $primary-color;
+    border: none;
+    color: $text-contrast-color;
+
+    @include hover {
+      background-color: $primary-dark-color;
+    }
+
+    &:active {
+      background-color: $primary-light-color;
+    }
+
+    &:disabled {
+      background-color: $element-disabled-color;
+      color: $text-alt-color;
+    }
+  }
+}
+
+.checkbox {
+  display: flex;
+  padding-top: 8px;
+  padding-bottom: 2px;
+  align-items: flex-start;
+
+  .wrapp {
+    position: relative;
+    flex-shrink: 0;
+    margin-right: 12px;
+    z-index: 1;
+  }
+
+  .input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    appearance: none;
+    transition: $transition-duration;
+
+    &:active {
+      outline: 3px solid #C8D5FF;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 2px;
+      border: 1px solid $border-color;
+      z-index: 0;
+      transition: $transition-duration;
+    }
+
+    &:checked {
+      &::after {
+        border-color: #fff0;
+      }
+
+      &+.check {
+        color: $primary-color;
+      }
+
+      &:hover {
+        &+.check {
+          color: $primary-dark-color;
+        }
+      }
+    }
+    
+    &:hover {
+      &::after {
+        border-color: $primary-dark-color
+      }
+    }
+
+    &:disabled {
+      &:active {
+        outline: none;
+      }
+
+      &::after {
+        border-color: $border-color;
+        background-color: $element-disabled-color;
+      }
+
+      &+.check {
+        pointer-events: none;
+        background-color: $border-color;
+        color: $element-disabled-color;
+        outline: 1px solid $border-color;
+      }
+    }
+  }
+  
+  .check {
+    position: relative;
+    color: #fff0;
+    border-radius: 2px;
+    z-index: 1;
+    transition: $transition-duration;
+  }
+
+  .span {
+    font-size: 14px;
+    line-height: calc(20 / 14);
+  }
+  
+  .link {
+    position: relative;
+    color: $primary-color;
+    white-space: nowrap;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid #fff0;
+      transition: $transition-duration;
+    }
+
+    @include hover {
+      &::after {
+        border-color: $primary-color;
+      }
+    }
+
+    &:active {
+      color: $primary-dark-color;
+
+      &::after {
+        border-color: #fff0;
+      }
+    }
+
+    fieldset:disabled & {
+      color: $element-disabled-color;
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+.input {
+  padding: 14px 12px;
+  border: 1px solid #C0C6D1;
+  border-radius: 5px;
+  outline: none;
+  caret-color: $primary-color;
+  
+  @include hover {
+    border-color: $primary-color;
+  }
+
+  &.invalid {
+    border-color: $error-color;
+  }
+
+  &.valid {
+    border-color: $success-color;
+  }
+
+  &:focus {
+    border-color: $primary-color;
+  }
+
+  &:disabled {
+    background-color: $element-disabled-color;
+    color:$text-alt-color;
+    border-color: $text-blind-color;
+    pointer-events: none;
+  }
+} 
+
+.select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  appearance: none;
+  opacity: 0;
+  z-index: -99;
+}
+
+.options {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  border: 1px solid $primary-color;
+  background-color: $element-background;
+  border-radius: 5px;
+  z-index: 5;
+  overflow: hidden;
+
+  .option {
+    padding: 12px 16px;
+    cursor: pointer;
+
+    @include hover {
+      background-color: #F9F9F9;
+    }
+
+    &.selected {
+      background-color: $primary-blind-color;
+      pointer-events: none;
+    }
+  }
+}
+
+.selectArrow {
+  position: absolute;
+  top: 42px;
+  right: 12px;
+  transform-origin: 50% 50%;
+
+  &.opened {
+    transform: rotate(180deg);
+  }
+}

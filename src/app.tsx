@@ -1,5 +1,5 @@
-import { LoginPage } from "./screens";
+import { RegPage } from "./pages";
 
 export const App = () => <>
-  <LoginPage />
+  <RegPage />
 </>;

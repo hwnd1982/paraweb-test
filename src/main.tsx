@@ -1,10 +1,9 @@
-import React, { PropsWithChildren } from 'react';
-import ReactDOM from 'react-dom/client';
+import React from 'react';
 import 'normalize.css';
-import './shared/styles/index.scss';
+import ReactDOM from 'react-dom/client';
 import {App} from './app';
 import { Provider } from 'react-redux';
-import { store } from './shared/store';
+import { store } from './shared/store/store';
 
 const container = document.getElementById("root")
 

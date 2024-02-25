@@ -1,13 +1,18 @@
+import formReducer from "@/features/form/model/formSlice";
 import { configureStore } from "@reduxjs/toolkit";
 
-const reducer = {};
+const reducer = {
+  form: formReducer
+};
 
-export const store = configureStore({
+const setupStore = () => configureStore({
   reducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
   devTools: true,
 });
 
-export type AppStore = ReturnType<typeof configureStore>;
+export const store = setupStore();
+
+export type AppStore = ReturnType<typeof setupStore>;
 export type RootState = ReturnType<AppStore["getState"]>;
 export type AppDispatch = AppStore["dispatch"];
