@@ -1,24 +1,32 @@
-import { Check, FormField } from "@/shared/ui";
+import { AppThunkDispatch, RootState } from "@/shared/store/store";
+import { Button, Check, FormField } from "@/shared/ui";
 import { Formik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
 import * as yup from 'yup';
+import { sendFormData } from "../model/formSlice";
 import { FieldProps, getFormFields } from "../model/utils";
 import styles from "./styles.module.scss";
 
 export const Form = ({form}: {form: FieldProps[]}) => {
-  const fields = getFormFields(form);
+  const {data} : {data: {[key: string]: string}, date: string} = useSelector((state: RootState) => state.form);
+  const {loading} = useSelector((state: RootState) => state.form);
+  const dispatch: AppThunkDispatch = useDispatch();
+  const fields: yup.AnyObject = getFormFields(form);
   const initialValues = Object.keys(fields)
-    .reduce((values: {[key: string]: string}, item) => ({...values, [item]: ''}), {});
+    .reduce((values: {[key: string]: string}, item) => ({...values, [item]: data[item] || ''}), {});
     
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={yup.object().shape(fields)}
       validateOnBlur
-      onSubmit={(values) => { console.log(values) }}
+      onSubmit={(values) => { 
+        dispatch(sendFormData(values));
+      }}
     >
       {({ values, errors, touched, handleChange, setFieldValue, handleBlur, handleSubmit, dirty }) => (
         <form onSubmit={handleSubmit} className={styles.form}>
-          <fieldset className={styles.fieldset}>
+          <fieldset disabled={loading} className={styles.fieldset}>
             {Object.keys(fields).map((input, index) => (
               <FormField
                 name={input}
@@ -46,7 +54,7 @@ export const Form = ({form}: {form: FieldProps[]}) => {
               </span>
             </span>
 
-            <button className={styles.button} type="submit">РЕГИСТРАЦИЯ</button>
+            <Button type="submit">РЕГИСТРАЦИЯ</Button>
           </fieldset>
         </form>
       )}

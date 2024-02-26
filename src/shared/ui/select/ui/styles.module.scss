@@ -73,7 +73,8 @@
   position: absolute;
   top: 42px;
   right: 12px;
-  transform-origin: 50% 50%;
+  transform-origin: 50% 45%;
+  transition: $transition-duration;
 
   &.opened {
     transform: rotate(180deg);

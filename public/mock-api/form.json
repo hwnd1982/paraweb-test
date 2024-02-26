@@ -45,19 +45,19 @@
       },
       {
         "text": "Выбор 1",
-        "value": "1"
+        "value": "choice-1"
       },
       {
         "text": "Выбор 2",
-        "value": "2"
+        "value": "choice-2"
       },
       {
         "text": "Выбор 3",
-        "value": "3"
+        "value": "choice-3"
       },
       {
         "text": "Выбор 4",
-        "value": "4"
+        "value": "choice-4"
       }
     ]
   }
